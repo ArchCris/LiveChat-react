@@ -1,0 +1,22 @@
+.chatConteiner{
+    height: 90%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.chatDisplay{
+    height: 600px;
+    width: 500px;
+    background-color: slateblue;
+    padding: 20px;
+}
+.chatDisplay-input{
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+}
+.chatDisplay-output{
+    height: 80%;
+    background-color: lightblue;
+}

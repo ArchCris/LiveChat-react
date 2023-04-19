@@ -1,0 +1,21 @@
+.navbar_conteiner{
+    height: 10%;
+    width: 100%;
+    background-color: rgba(112, 128, 144, 0.50)
+}
+.navbar_conteiner ul{ 
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+}
+.navbar_conteiner a{ 
+    color: black;
+    text-decoration: none;
+    font-size: 1.25rem;
+}
+.navbar_conteiner a:hover{ 
+    color: blue;
+}
