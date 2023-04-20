@@ -15,27 +15,34 @@ const ChatBody = (props) => {
                 time: new Date(Date.now()).getHours() + ":" + new Date(Date.now()).getMinutes()
             }
             await props.socket.emit('send_message',messageData)
+            setDisplayedMessages((displayedMessages)=>[...displayedMessages,messageData])
         }
-
     }
 
     useEffect(()=>{
         props.socket.on("receive_message",(data)=>{
             console.log(data)
             setDisplayedMessages((displayedMessages)=>[...displayedMessages,data])
-            
         })
     },[props.socket])
 
     return (
         <div className='chatBody-conteiner'>
-            <div className='display'>
+            <p className='userinfo'>Welcome {props.userinfo[0]} you are in the room: {props.userinfo[1]}</p>
+            <ul className='display'>
                 {displayedMessages.map((message,key)=>{
                     return(
-                        <p key={key}>{message.message}</p>
+                        <div className='message-body' key={key} id={props.name === message.author ? "you" : "other"}>
+                            <div className='message'>
+                            {message.message}
+                            </div>
+                            <div className='message-data'>
+                            {message.author}{message.time}
+                            </div>
+                        </div>
                     )
                 })}
-            </div>
+            </ul>
             <div className='input'>
                 <input onChange={(e)=>{setMessage(e.target.value)}}></input>
                 <button onClick={()=>{sendMessage()}}>SEND THE MESSAGE</button>

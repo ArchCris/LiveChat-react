@@ -2,14 +2,17 @@
     height: 80%;
     background-color: lightcyan;
 }
+.chatBody-conteiner .userinfo{
+    background-color: rgb(255, 255, 255);
+}
 .chatBody-conteiner .display{
     height: 80%;
+    padding: 20px;
     background-color: lightcyan;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     color: black;
+    list-style: none;
 }
 .chatBody-conteiner .input{
     height: 20%;
@@ -19,4 +22,22 @@
 }
 .chatBody-conteiner input{
     height: 100%;
+}
+.message-body{
+    width: fit-content;
+    max-width: 40%;
+}
+.message-body .message{
+    border-radius: 10px;
+    padding: 5px;
+    background-color: lightgreen;
+}
+.message-body .message-data{
+    color: grey;
+}
+#other{
+    align-self: flex-end;
+}
+#other .message{
+    background-color: lightpink;
 }

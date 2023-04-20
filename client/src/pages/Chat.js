@@ -10,10 +10,12 @@ const Chat = () => {
 
   const[name,setName]=useState('')
   const[room,setRoom]=useState('')
+  const[logged,setLogged]=useState(false)
 
   const joinRoom = () =>{
     if(name !== "" && room !== ""){
       socket.emit('join_room',room)
+      setLogged(true)
     }
   }
 
@@ -27,7 +29,7 @@ const Chat = () => {
           <input type='text' onChange={(e)=>{setRoom(e.target.value)}} ></input>
           <button onClick={()=>{joinRoom()}}>ENTER TO THE ROOM</button>
         </div>
-        <ChatBody socket={socket} name={name} room={room}/>
+        {logged === true ? <ChatBody socket={socket} name={name} room={room} userinfo={[name,room]}/> : null}
       </div>
     </div>
   )
